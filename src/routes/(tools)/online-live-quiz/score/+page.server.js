@@ -1,3 +1,6 @@
+import prisma from "../../../../lib/prisma";
+
+
 export async function post({ request }) {
     const data = await request.json();
     const { score } = data;
