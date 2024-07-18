@@ -28,8 +28,6 @@ export const actions = {
         data: { email, password },
       });
       
-      throw redirect(302, "/online-live-quiz/login");
-
     } catch (error) {
       console.error('Error creating user:', error);
 

@@ -7,18 +7,22 @@ import Quizes from "./quizes/+page.svelte";
 	];
 	let selectedTool = null;
 	import Register from './register/+page.svelte';
+	import login from './login/+page.svelte'
 
     let showRegister = false;
-	
+	let showLogin=false;
   function loadRegister() {
     showRegister = true;
   }
+  function loadLogin() {
+    showLogin = true;
+  }
 </script>
 
-{#if !showRegister}
+{#if !showRegister && !showLogin}
 <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
-	<button on:click={loadRegister}>Register</button>
-	
+	<button on:click={loadRegister}> Register </button>
+	<button on:click={loadLogin}> Login </button>
 	{#if selectedTool === null}
     <div class="grid grid-cols-4 gap-8 p-4">
       {#each tools as tool}
@@ -41,6 +45,9 @@ import Quizes from "./quizes/+page.svelte";
 {/if}
 {#if showRegister}
 	<svelte:component this={Register} />
+{/if}
+{#if showLogin}
+	<svelte:component this={login} />
 {/if}
 <style>
 .card {
